@@ -8,6 +8,10 @@ public class Cart {
         this.qtyOrdered = 0;
     }
 
+    public int getQtyOrdered(){
+        return this.qtyOrdered;
+    }
+    
     public void addDigitalVideoDisc(DigitalVideoDisc disc){
         if (qtyOrdered < MAX_CAP){
             itemsCap[qtyOrdered] = disc;
@@ -63,6 +67,14 @@ public class Cart {
         } else {
             System.out.println("Xoa khong thanh cong: Khong ton tai dia!!");
         }
+    }
 
+    public float totalCost(){
+        float total = 0;
+        for (int i = 0; i < qtyOrdered; i++){
+            total += itemsCap[i].getCost();
+        }
+
+        return total;
     }
 }
