@@ -13,6 +13,23 @@ public class DigitalVideoDisc {
         this.length = 0;
     }
 
+    public DigitalVideoDisc(String title){
+        this.title = title;
+    }
+    
+    public DigitalVideoDisc(String title, String category, double cost){
+        this.title = title;
+        this.category = category;
+        this.cost = cost;
+    }
+    
+    public DigitalVideoDisc(String director, String title, String category, double cost){
+        this.title = title;
+        this.category = category;
+        this.cost = cost;
+        this.director = director;
+
+    }
     public DigitalVideoDisc(String title,  String category, String director, int length, double cost){
         this.title = title;
         this.cost = cost;
@@ -24,7 +41,6 @@ public class DigitalVideoDisc {
     public String getTitle(){
         return this.title;
     }
-
 
     public double getCost(){
         return this.cost;

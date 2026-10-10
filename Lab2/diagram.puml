@@ -1,0 +1,54 @@
+@startuml
+!define osaPuml https://raw.githubusercontent.com/Crashedmind/PlantUML-opensecurityarchitecture2-icons/master
+!include osaPuml/Common.puml
+!include osaPuml/User/all.puml
+!include osaPuml/Hardware/all.puml
+!include osaPuml/Misc/all.puml
+!include osaPuml/Server/all.puml
+!include osaPuml/Site/all.puml
+
+
+' Users
+together{
+    osa_user_green_developer(Mary, "Mary", "Product Team", "Developer")
+    osa_user_green_operations(Bob, "Bob", "Accounts Team", "Manager")
+    osa_user_green_business_manager(Ivan, "Ivan", "IT Team", "Server Admin")
+}
+' Devices
+together{
+    osa_desktop(PC, "192.168.1.10", "Windows 10", "PC")
+    osa_laptop(Mac, "192.168.1.12", "Mac", "Mac")
+    osa_iPhone(iPhone, "IP Dynamic", "Iphone 11", "iPhone")
+    osa_iPhone(Android, "IP Dynamic", "Android 10", "Phone")
+    osa_server(Server, "192.168.10.255", "Ubuntu Server 20.04 LTS", "Sever")
+}
+' Network
+osa_device_wireless_router(wifiAP, "192.168.1.1", "Network")
+osa_hub(hub, "Office hub", "Hub")
+osa_firewall(firewall, "51.37.24.103", "Network")
+osa_cloud(cloud, "Internet", "Network")
+
+' main
+Mary --> PC: source code
+Mary --> Android: social media
+
+Bob --> Mac: financial benefit
+Bob --> iPhone: phone calls
+
+Ivan --> Server: configuration
+
+iPhone --> wifiAP
+Android --> wifiAP
+
+wifiAP --> hub
+Server --> hub
+PC --> hub
+Mac --> hub  
+
+hub --> firewall
+
+firewall --> cloud
+
+
+footer %filename() rendered with PlantUML version %version()\nThe Hitchhiker’s Guide to PlantUML
+@enduml

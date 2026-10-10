@@ -12,6 +12,7 @@ public class Cart {
         return this.qtyOrdered;
     }
     
+    // thêm DVD vào cửa hàng
     public void addDigitalVideoDisc(DigitalVideoDisc disc){
         if (qtyOrdered < MAX_CAP){
             itemsCap[qtyOrdered] = disc;
@@ -23,7 +24,7 @@ public class Cart {
 
     }
 
-    public void cmpTitle(){
+    public void sortTitle(){
         for (int i = 0; i < qtyOrdered; i++){
             for (int j = i+1; j < qtyOrdered; j++){
                 if (itemsCap[i].getTitle().compareToIgnoreCase(itemsCap[j].getTitle()) > 0){
@@ -36,7 +37,7 @@ public class Cart {
         }
     }
 
-    public void cmpCost(){
+    public void sortCost(){
         for (int i = 0; i < qtyOrdered; i++){
             for (int j = i+1; j < qtyOrdered; j++){
                 if (itemsCap[i].getCost() > itemsCap[j].getCost()){
@@ -49,7 +50,14 @@ public class Cart {
         }
     }
 
-    public void remove(DigitalVideoDisc disc){
+    public void printCart() {
+        int n = this.qtyOrdered;
+        for (int i = 0; i < n; i++){
+            System.out.println(i+". " + itemsCap[i].getTitle() + ".");
+        }
+    }
+
+    public void removeDigitalVideoDisc(DigitalVideoDisc disc){
         int idx = -1;
         for (int i = 0 ; i < qtyOrdered; i++){
             if (itemsCap[i].getTitle().equals(disc.getTitle())){
