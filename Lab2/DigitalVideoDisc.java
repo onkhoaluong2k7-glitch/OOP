@@ -1,6 +1,6 @@
 public class DigitalVideoDisc {
     private String title;
-    private float cost;
+    private double cost;
     private String category;
     private String director;
     private int length;
@@ -13,7 +13,7 @@ public class DigitalVideoDisc {
         this.length = 0;
     }
 
-    public DigitalVideoDisc(String title,  String category, String director, int length, float cost){
+    public DigitalVideoDisc(String title,  String category, String director, int length, double cost){
         this.title = title;
         this.cost = cost;
         this.category = category;
@@ -26,7 +26,7 @@ public class DigitalVideoDisc {
     }
 
 
-    public float getCost(){
+    public double getCost(){
         return this.cost;
     }
 

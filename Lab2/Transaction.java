@@ -2,26 +2,25 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
-
 public class Transaction {
     private String transactionId;
     private String cardOwner;
-    private float amount;
+    private double amount;     // Đổi sang double để khớp với tiền trong thẻ
     private String message;
-    private float balance;
+    private double balance;    // Đổi sang double
     private String transactionDate;
 
-    public Transaction(String cardOwner, float amount, String message, float balance, String transactionDate) {
+    // Đã bỏ tham số transactionDate ở cuối
+    public Transaction(String cardOwner, double amount, String message, double balance) {
         this.transactionId = UUID.randomUUID().toString();
         this.cardOwner = cardOwner;
         this.amount = amount;
         this.message = message;
         this.balance = balance;
-        this.transactionDate = transactionDate;
 
+        // Tự động chốt thời gian ngay khoảnh khắc giao dịch diễn ra
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         this.transactionDate = dtf.format(LocalDateTime.now());
-
     }
 
     public void printReceipt() {

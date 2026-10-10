@@ -16,4 +16,19 @@ public class Store {
             System.out.println("Kho da day, khong the them vao kho!!");
         }
     }
+    
+    public void printStoreReversed(){
+        for (int i = 0; i < qtyInStore; i++){
+            System.out.println(i+". "+itemsInStore[i].getTitle());
+        }
+    }
+
+    public DigitalVideoDisc searchByTitle (String title){
+        for (int i  = 0; i < qtyInStore; i++){
+            if (title.equals(itemsInStore[i].getTitle())){
+                return itemsInStore[i];
+            }
+        }
+        return null;
+    }
 }
