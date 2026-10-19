@@ -1,0 +1,6 @@
+Nếu tạo constructor theo title rồi lại tạo constructor theo category (cùng một tham số String), Java có cho phép không? 
+
+- Java sẽ không cho phép ta làm điều này, vì theo quy tắc overloading Java phân biệt các method và constructor dựa trên các 
+chữ ký (signature). Signature bao gồm tên và kiểu sanh sách truyền vào của method hay constructor đó, hoàn toàn không quan tâm
+đến tên của biến truyền vào. Vây nếu tạo constructor theo title rồi lại tạo constructor theo category (cùng một tham số String)
+thì câu trả lời là không thể.
